@@ -2,7 +2,7 @@ name: Build Zig for PowerPC 32-bit
 
 # Cross-compiles Zig for $TARGET using the scripts in zig-build
 # (https://github.com/randyos-org/zig-build) and the cross LLVM published by
-# emanspeaks/powerzig-bootstrap, smoke-tests it under qemu, and publishes it.
+# randyos-org/powerzig-bootstrap, smoke-tests it under qemu, and publishes it.
 #
 # All build logic lives in zig-build; this workflow only schedules it and
 # publishes. Each release carries a manifest.json from zig-build/cross-manifest.sh.
@@ -34,7 +34,7 @@ concurrency:
 
 env:
   ZIG_BUILD_URL: https://github.com/randyos-org/zig-build.git
-  LLVM_REPO: emanspeaks/powerzig-bootstrap
+  LLVM_REPO: randyos-org/powerzig-bootstrap
   TARGET: powerpc-linux-musleabihf
   CPU: baseline
   ZIG_HOST_CPU: baseline

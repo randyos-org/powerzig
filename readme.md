@@ -5,7 +5,7 @@ Zig compiler builds for 32-bit PowerPC Linux (`powerpc-linux-musleabihf`, `basel
 The build is defined in [zig-build](https://github.com/randyos-org/zig-build); this repo's workflow only runs those scripts on GitHub's runners and publishes the result:
 
 1. Build a stage3 Zig for the runner (`build-stage3.sh`), cached between runs.
-2. Download the cross LLVM from [powerzig-bootstrap](https://github.com/emanspeaks/powerzig-bootstrap) whose `llvm_key` matches.
+2. Download the cross LLVM from [powerzig-bootstrap](https://github.com/randyos-org/powerzig-bootstrap) whose `llvm_key` matches.
 3. Cross-compile Zig with LLVM statically linked (`build-zig-cross.sh`).
 4. Smoke-test it under qemu (`test-zig-cross.sh`): `zig version`, then build and run a Zig and a C hello world with the PowerPC Zig itself.
 5. Publish the Zig folder and a `manifest.json` as release `vN`.
