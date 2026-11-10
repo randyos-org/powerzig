@@ -2,7 +2,7 @@
 
 Zig compiler builds for 32-bit PowerPC Linux (`powerpc-linux-musleabihf`, `baseline` CPU), such as a G3/G4 Mac running a PowerPC Linux distribution. The binary is statically linked against musl, so it runs regardless of the distribution's libc.
 
-The build is defined in [zig-build](https://codeberg.org/emanspeaks/zig-build); this repo's workflow only runs those scripts on GitHub's runners and publishes the result:
+The build is defined in [zig-build](https://github.com/randyos-org/zig-build); this repo's workflow only runs those scripts on GitHub's runners and publishes the result:
 
 1. Build a stage3 Zig for the runner (`build-stage3.sh`), cached between runs.
 2. Download the cross LLVM from [powerzig-bootstrap](https://github.com/emanspeaks/powerzig-bootstrap) whose `llvm_key` matches.

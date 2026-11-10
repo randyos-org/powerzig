@@ -1,7 +1,7 @@
 name: Build Zig for PowerPC 32-bit
 
 # Cross-compiles Zig for $TARGET using the scripts in zig-build
-# (https://codeberg.org/emanspeaks/zig-build) and the cross LLVM published by
+# (https://github.com/randyos-org/zig-build) and the cross LLVM published by
 # emanspeaks/powerzig-bootstrap, smoke-tests it under qemu, and publishes it.
 #
 # All build logic lives in zig-build; this workflow only schedules it and
@@ -33,7 +33,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  ZIG_BUILD_URL: https://codeberg.org/emanspeaks/zig-build.git
+  ZIG_BUILD_URL: https://github.com/randyos-org/zig-build.git
   LLVM_REPO: emanspeaks/powerzig-bootstrap
   TARGET: powerpc-linux-musleabihf
   CPU: baseline
@@ -187,7 +187,7 @@ jobs:
                     } | grep -E '^v[0-9]+$' | sed 's/^v//' | sort -n | tail -1)
           N=$(( ${LATEST:-0} + 1 ))
           jq -r '"Zig `\(.zig_version)` for `\(.target)` (`\(.cpu)`), cross-compiled by " +
-            "[zig-build `\(.zig_build_commit[0:12])`](https://codeberg.org/emanspeaks/zig-build/src/commit/\(.zig_build_commit)) " +
+            "[zig-build `\(.zig_build_commit[0:12])`](https://github.com/randyos-org/zig-build/commit/\(.zig_build_commit)) " +
             "and smoke-tested under qemu (runs, and builds + runs zig and C hello worlds).\n\n" +
             "| Field | Value |\n|---|---|\n" +
             "| zig-src | `\(.zig_src_commit[0:12])` |\n" +
